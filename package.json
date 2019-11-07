@@ -1,0 +1,31 @@
+{
+  "name": "thinkingdata-node",
+  "description": "A server-side API for thinkingdata analytics",
+  "keywords": [
+    "thinkingdata",
+    "analytics",
+    "api",
+    "stats"
+  ],
+  "version": "1.0.1",
+  "homepage": "https://github.com/ThinkingDataAnalytics/node-sdk",
+  "author": "SDK developer",
+  "license": "Apache-2.0",
+  "main": "lib/thinkingdata-node",
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ThinkingDataAnalytics/node-sdk.git"
+  },
+  "engines": {
+    "node": ">=6.9"
+  },
+  "dependencies": {
+    "log4js": "^5.3.0"
+  },
+  "bugs": {
+    "url": "https://github.com/ThinkingDataAnalytics/node-sdk/issues"
+  }
+}
