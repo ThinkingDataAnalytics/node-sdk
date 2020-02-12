@@ -1,13 +1,24 @@
 var ThinkingAnalytics = require('./lib/thinkingdata-node');
+//只能初始化一次
 
-var taBatch = ThinkingAnalytics.initWithBatchMode('b2a61feb9e56472c90c5bcb320dfb4ef', 'https://sdk.tga.thinkinggame.cn', {
-  batchSize: 2,
-  enableLog: true
+//选择是否压缩
+consumerConfig = {
+    compress : false
+};
+var taBatch = ThinkingAnalytics.initWithBatchMode('appid', 'URL', {
+    batchSize: 2,
+    enableLog: true,
+    compress :false//默认true 代表gzip压缩，false适合在内网设置
 });
-var taDebug = ThinkingAnalytics.initWithDebugMode('b2a61feb9e56472c90c5bcb320dfb4ef', 'https://sdk.tga.thinkinggame.cn');
-var taLogging = ThinkingAnalytics.initWithLoggingMode('.'); //, { rotateHourly: true, });
+//如果希望仅仅校验数据格式而不真正入库，可以通过 config 传入:
+config = {
+    dryRun: false
+};
+//var taDebug = ThinkingAnalytics.initWithDebugMode('appid', 'URL',config);
 
-var ta = taLogging;
+//var taLogging = ThinkingAnalytics.initWithLoggingMode('.'); //, { rotateHourly: true, });
+
+var ta = taBatch;
 
 var event = {
   accountId: 'node_test',
@@ -58,6 +69,7 @@ var userData = {
     prop_double: 134.12,
     prop_string: 'hello',
     prop_int: 666,
+    prop_array:['str1','str2'],
   },
   callback(e) {
     if (e) {
@@ -78,4 +90,19 @@ ta.userAdd({
   }
 });
 
+
+//删除用户某一个属性
+ta.userUnset({
+    accountId: 'node_test',
+    property: 'prop_double'
+});
+
+ta.userAppend({
+    accountId: 'node_test',
+    properties:{
+      prop_array:['str3','str4']
+    }
+});
+
+ta.flush();
 ta.close();
