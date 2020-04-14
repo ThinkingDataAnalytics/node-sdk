@@ -7,7 +7,7 @@
     "api",
     "stats"
   ],
-  "version": "1.1.0",
+  "version": "1.1.1",
   "homepage": "https://github.com/ThinkingDataAnalytics/node-sdk",
   "author": "SDK developer",
   "license": "Apache-2.0",
