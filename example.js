@@ -5,20 +5,22 @@ var ThinkingAnalytics = require('./lib/thinkingdata-node');
 consumerConfig = {
     compress : false
 };
+/*
 var taBatch = ThinkingAnalytics.initWithBatchMode('appid', 'URL', {
     batchSize: 2,
     enableLog: true,
     compress :false//默认true 代表gzip压缩，false适合在内网设置
 });
+*/
 //如果希望仅仅校验数据格式而不真正入库，可以通过 config 传入:
 config = {
     dryRun: false
 };
 //var taDebug = ThinkingAnalytics.initWithDebugMode('appid', 'URL',config);
 
-//var taLogging = ThinkingAnalytics.initWithLoggingMode('.'); //, { rotateHourly: true, });
+var taLogging = ThinkingAnalytics.initWithLoggingMode('.'); //, { rotateHourly: true, });
 
-var ta = taBatch;
+var ta = taLogging;
 
 var event = {
   accountId: 'node_test',
@@ -63,7 +65,7 @@ for (var i = 0; i < 5; i++) {
 
 
 var userData = {
-  accountId: 'node_test',
+  distinctId: 'node_test',
   properties: {
     prop_date: new Date(),
     prop_double: 134.12,
