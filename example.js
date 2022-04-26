@@ -18,7 +18,7 @@ config = {
 };
 //let taDebug = ThinkingAnalytics.initWithDebugMode('appid', 'URL',config);
 
-let taLogging = ThinkingAnalytics.initWithLoggingMode('.', {filePrefix: 'test'}); //, { rotateHourly: true, });
+let taLogging = ThinkingAnalytics.initWithLoggingMode('.', { filePrefix: 'test' }); //, { rotateHourly: true, });
 
 let ta = taLogging;
 
@@ -132,3 +132,4 @@ ta.userAppend({
 
 ta.flush();
 ta.close();
+//test
