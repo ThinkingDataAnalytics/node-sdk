@@ -5,22 +5,27 @@ let ThinkingAnalytics = require('./lib/thinkingdata-node');
 consumerConfig = {
     compress: false
 };
-/*
-let taBatch = ThinkingAnalytics.initWithBatchMode('appid', 'URL', {
+
+let taBatch = ThinkingAnalytics.initWithBatchMode('cf918051b394495ca85d1b7787ad7243', 'https://receiver.ta.thinkingdata.cn', {
     batchSize: 2,
     enableLog: true,
-    compress :false//默认true 代表gzip压缩，false适合在内网设置
+    compress: false//默认true 代表gzip压缩，false适合在内网设置
 });
-*/
+
+// let taAsyncBatch = ThinkingAnalytics.initWithAsyncBatchMode('cf918051b394495ca85d1b7787ad7243', 'https://receiver.ta.thinkingdata.cn', {
+//     batchSize: 10,
+//     enableLog: true,
+//     compress: false//默认true 代表gzip压缩，false适合在内网设置
+// });
 //如果希望仅仅校验数据格式而不真正入库，可以通过 config 传入:
 config = {
     dryRun: false
 };
 //let taDebug = ThinkingAnalytics.initWithDebugMode('appid', 'URL',config);
 
-let taLogging = ThinkingAnalytics.initWithLoggingMode('.', { filePrefix: 'test' }); //, { rotateHourly: true, });
+// let taLogging = ThinkingAnalytics.initWithLoggingMode('.', { filePrefix: 'test' }); //, { rotateHourly: true, });
 
-let ta = taLogging;
+let ta = taBatch;
 
 let event = {
     accountId: '',
@@ -57,6 +62,12 @@ ta.setSuperProperties({
     super_debug_string: 'hahahaha',
 });
 
+// setInterval(() => {
+//     console.log('定时开始')
+//     for (let i = 0; i < 5; i++) {
+//         ta.track(event);
+//     }
+// }, 5000);
 
 for (let i = 0; i < 5; i++) {
     event.event = event.event + i;
@@ -130,6 +141,12 @@ ta.userAppend({
     }
 });
 
+ta.userUniqAppend({
+    accountId: 'node_test',
+    properties: {
+        prop_array: ['str3', 'str4']
+    }
+});
+
 ta.flush();
 ta.close();
-//test
