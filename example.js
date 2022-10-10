@@ -23,9 +23,12 @@ config = {
 };
 //let taDebug = ThinkingAnalytics.initWithDebugMode('appid', 'URL',config);
 
-// let taLogging = ThinkingAnalytics.initWithLoggingMode('.', { filePrefix: 'test' }); //, { rotateHourly: true, });
+let taLogging = ThinkingAnalytics.initWithLoggingMode('.', { filePrefix: 'test', rotateHourly: true }); //, { rotateHourly: true, });
 
-let ta = taBatch;
+// TestLogger.configure({appenders: appenders, categories:categories});
+// TestLogger.info("111111");
+
+let ta = taLogging;
 
 let event = {
     accountId: '',
@@ -49,7 +52,6 @@ let event = {
 // 设置动态公共属性
 ta.setDynamicSuperProperties(() => {
     let date = new Date();
-    date.setYear(2018);
     return {
         super_date: date,
         super_int: 5,
