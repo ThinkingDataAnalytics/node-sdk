@@ -27,7 +27,7 @@
     "mocha": "^2.4.5"
   },
   "dependencies": {
-    "log4js": "^6.9.1"
+    "log4js": "^6.4.0"
   },
   "bugs": {
     "url": "https://github.com/ThinkingDataAnalytics/node-sdk/issues"
