@@ -31,6 +31,9 @@ declare class LogConsumerConfig {
     // Usually you don't need to set it.
     // You need to set this parameter, If you add the 'instance_var' in the pm2 configuration file.
     pm2InstanceVar?: string;
+
+    // Whether to disable the Cluster mode. default is false
+    disableClustering?: boolean;
 }
 
 declare function initWithDebugMode(appId: string, serverUrl: string, config: Object): TA;

@@ -1,3 +1,10 @@
+### v1.3.9
+**Date:** 2023/08/02
+
+**Notes:**
+
+* Configure the Cluster mode switch
+
 ### v1.3.8
 **Date:** 2023/03/24
 
