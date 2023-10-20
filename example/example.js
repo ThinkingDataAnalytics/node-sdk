@@ -1,20 +1,22 @@
-const ThinkingEngine = require("../lib/thinkingdata-node");
+const ThinkingData = require("../lib/thinkingdata-node");
+
+ThinkingData.enableLog(true);
 
 // // Debug
-// let teSDK = ThinkingEngine.initWithDebugMode('appId', 'serverUrl', {
+// let teSDK = ThinkingData.initWithDebugMode('appId', 'https://receiver-ta-uat.thinkingdata.cn/', {
 //     dryRun: false, // report data to TE or not
 //     deviceId: "123456789"
 // });
 
 // // report by http
-// let teSDK = ThinkingEngine.initWithBatchMode('appid', 'serverUrl', {
+// let teSDK = ThinkingData.initWithBatchMode('appid', 'https://receiver-ta-uat.thinkingdata.cn/', {
 //     batchSize: 2,
 //     enableLog: true,
 //     compress: false // enable compress or not, default true
 // });
 
 // // report async by http
-// let teSDK = ThinkingEngine.initWithAsyncBatchMode('appid', 'serverUrl', {
+// let teSDK = ThinkingData.initWithAsyncBatchMode('appid', 'https://receiver-ta-uat.thinkingdata.cn/', {
 //     batchSize: 10,
 //     enableLog: true,
 //     compress: false // enable compress or not, default true
@@ -38,17 +40,18 @@ const ThinkingEngine = require("../lib/thinkingdata-node");
 //         }
 //     },
 // };
-// let teSDK = ThinkingEngine.initWithLoggingMode('./log/te', {
+// let teSDK = ThinkingData.initWithLoggingMode('./log/te', {
 //     filePrefix: 'test',
 //     rotateHourly: true,
 //     pm2: false,
 // }, yourOwnLog4jsConfigExample);
 
 // write data to file, it works with LogBus
-let teSDK = ThinkingEngine.initWithLoggingMode('./log/te', {
+let teSDK = ThinkingData.initWithLoggingMode('./log/', {
     filePrefix: 'test',
     rotateHourly: true,
     pm2: false,
+    disableClustering: true,
 });
 
 function configSuperProperty() {

@@ -1,5 +1,6 @@
 # ThinkingData SDK for Node.js
-![output](https://user-images.githubusercontent.com/53337625/205621683-ed9b97ef-6a52-4903-a2c0-a955dddebb7d.png)
+
+<img src="https://user-images.githubusercontent.com/53337625/205621683-ed9b97ef-6a52-4903-a2c0-a955dddebb7d.png" alt="logo" width="50%"/>
 
 This is the [ThinkingData](https://www.thinkingdata.cn)™ SDK for Node.js. Documentation is available on our help center in the following languages:
 

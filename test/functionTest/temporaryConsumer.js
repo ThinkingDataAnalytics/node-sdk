@@ -1,4 +1,4 @@
-const _ = require("../../lib/utils");
+const _ = require("../../lib/tdUtils");
 
 class TemporaryConsumer {
     flush() {
