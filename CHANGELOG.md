@@ -1,3 +1,17 @@
+### v1.4.1
+**Date:** 2023/10/27
+
+**Notes:**
+
+* Compatible with lower versions of Node.js
+
+### v1.4.0
+**Date:** 2023/10/20
+
+**Notes:**
+
+* Formatted SDK files name
+
 ### v1.3.9
 **Date:** 2023/08/02
 
