@@ -152,26 +152,13 @@ declare class TDAnalytics {
 declare class TDLogConsumerConfig {
     // false(default) by the day; true by the hour.
     rotateHourly?: boolean;
-
     // file prefix
     filePrefix?: string;
-
-    // This parameter must be set to true if the app runs in a pm2 environment
-    pm2?: boolean;
-
-    // Usually you don't need to set it.
-    // You need to set this parameter, If you add the 'instance_var' in the pm2 configuration file.
-    pm2InstanceVar?: string;
-
-    // Whether to disable the Cluster mode. default is false
-    disableClustering?: boolean;
 }
 
 declare class TDBatchConsumerConfig {
     // flush event count each time, default 20
     batchSize?: number;
-    // enable log or not
-    enableLog?: boolean;
     // enable http compress
     compress?: boolean;
 }
@@ -215,14 +202,12 @@ declare function initWithAsyncBatchMode(appId: string, serverUrl: string, config
 
 /**
  * Write data to file, it works with LogBus
- * The Logging Mode uses log4js to save data, you need to report data by LogBus.
+ * The Logging Mode uses winston to save data, you need to report data by LogBus.
  *
  * @param path log file's directory
  * @param config config of consumer
- * @param log4jsConfig If you are also using log4js in your project you will need to pass in your own config file.
- * otherwise it will fail to write to the log
  */
-declare function initWithLoggingMode(path: string, config: TDLogConsumerConfig, log4jsConfig?: Object): TDAnalytics;
+declare function initWithLoggingMode(path: string, config: TDLogConsumerConfig): TDAnalytics;
 
 /**
  * Enable SDK log

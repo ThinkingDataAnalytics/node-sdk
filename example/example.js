@@ -11,47 +11,19 @@ ThinkingData.enableLog(true);
 // // report by http
 // let teSDK = ThinkingData.initWithBatchMode('appid', 'https://receiver-ta-uat.thinkingdata.cn/', {
 //     batchSize: 2,
-//     enableLog: true,
 //     compress: false // enable compress or not, default true
 // });
 
 // // report async by http
 // let teSDK = ThinkingData.initWithAsyncBatchMode('appid', 'https://receiver-ta-uat.thinkingdata.cn/', {
 //     batchSize: 10,
-//     enableLog: true,
 //     compress: false // enable compress or not, default true
 // });
 
-// // If you are also using log4js in your project you will need to pass in your own config file
-// // otherwise it will fail to write to the log
-// let yourOwnLog4jsConfigExample = {
-//     appenders: {
-//         you_console: {
-//             type: 'console',
-//             layout: {
-//                 type: 'pattern', pattern: '%[[%d{yyyy-MM-dd hh:mm:ss.SSS}]-[%p]-[pid=%z]-[%f{1}-%l] %m%]'
-//             }
-//         },
-//     },
-//     categories: {
-//         you_categories: {
-//             appenders: ['you_console'],
-//             level: 'info'
-//         }
-//     },
-// };
-// let teSDK = ThinkingData.initWithLoggingMode('./log/te', {
-//     filePrefix: 'test',
-//     rotateHourly: true,
-//     pm2: false,
-// }, yourOwnLog4jsConfigExample);
-
 // write data to file, it works with LogBus
-let teSDK = ThinkingData.initWithLoggingMode('./log/', {
+let teSDK = ThinkingData.initWithLoggingMode('./log', {
     filePrefix: 'test',
-    rotateHourly: true,
-    pm2: false,
-    disableClustering: true,
+    rotateHourly: true
 });
 
 function configSuperProperty() {
@@ -154,8 +126,6 @@ function testTrack() {
     };
 
     teSDK.trackOverWrite(trackOverwriteEvent);
-
-    teSDK.flush();
 }
 
 function testUserProperty() {
@@ -215,7 +185,7 @@ function testUserProperty() {
 }
 
 // configSuperProperty();
-testTrack();
+// testTrack();
 // testUserProperty();
 
 module.exports = {

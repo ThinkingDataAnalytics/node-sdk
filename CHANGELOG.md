@@ -1,3 +1,10 @@
+### v1.5.0
+**Date:** 2024/03/25
+
+**Notes:**
+
+* Replace log4js with winston
+
 ### v1.4.1
 **Date:** 2023/10/27
 
